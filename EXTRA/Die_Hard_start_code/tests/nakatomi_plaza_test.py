@@ -10,9 +10,9 @@ class TestNakatomiPlaza(unittest.TestCase):
         self.badguy2 = Person("Minion 1", 0)
         self.badguy3 = Person("Minion 2", 0)
         self.badguy4 = Person("Minion 3", 0)
-        self.floor1 = Floor()
-        self.floor2 = Floor()
-        self.floor3 = Floor()
+        self.floor1 = Floor(1)
+        self.floor2 = Floor(2)
+        self.floor3 = Floor(3)
         self.nakatomi_plaza = NakatomiPlaza(self.floor1, self.floor2, self.floor3)
         
         
@@ -23,17 +23,17 @@ class TestNakatomiPlaza(unittest.TestCase):
         self.nakatomi_plaza.add_to_floor(self.floor1, self.badguy4)
         self.assertEqual(1, self.nakatomi_plaza.floor1.floor_count())
 
-    @unittest.skip("Delete this line to run the test")
+    # @unittest.skip("Delete this line to run the test")
     def test_building_has_one_bad_guy_on_floor_2(self):
         self.nakatomi_plaza.add_to_floor(self.floor2, self.badguy3)
-        self.assertEqual(1, len(self.nakatomi_plaza.floor2))
+        self.assertEqual(1, self.nakatomi_plaza.floor2.floor_count())
 
-    @unittest.skip("Delete this line to run the test")
+    # @unittest.skip("Delete this line to run the test")
     def test_building_has_three_bad_guy_on_floor_3(self):
         self.nakatomi_plaza.add_to_floor(self.floor3, self.badguy1)
         self.nakatomi_plaza.add_to_floor(self.floor3, self.badguy2)
         self.nakatomi_plaza.add_to_floor(self.floor3, self.badguy3)
-        self.assertEqual(3, len(self.nakatomi_plaza.floor3))
+        self.assertEqual(3, self.nakatomi_plaza.floor3.floor_count())
 
     @unittest.skip("Delete this line to run the test")
     def test_floor_can_be_cleared_of_bad_guys(self):
